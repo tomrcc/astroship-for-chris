@@ -157,20 +157,24 @@ _structures:
                   text: 
                   link: 
                   icon: 
-                  iconColor: white 
+                  style: primary
                 _inputs:
                   icon:
                     type: select
                     options:
                       values: data.boxIcons
-                  iconColor:
+                  style:
                     type: select
                     options:
                       values: 
-                        - name: Black
-                          id: black
-                        - name: White
-                          id: white
+                        - name: Primary
+                          id: primary
+                        - name: Outline
+                          id: outline
+                        - name: Inverted
+                          id: inverted
+                        - name: Muted
+                          id: muted
                 preview:
                   icon: smart_button
         preview:

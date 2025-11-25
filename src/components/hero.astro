@@ -43,13 +43,16 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
       data-prop="buttons">
       {
         buttons.map((button) => {
-          const iconColor = button.iconColor || "white";
+          const linkStyle = button.style || "primary";
           const iconClass =
-            iconColor === "black" ? "text-black w-4 h-4" : "text-white w-5 h-5";
+            linkStyle === "primary"
+              ? "text-white w-5 h-5"
+              : "text-black w-4 h-4";
           return (
             <editable-array-item>
               <Link
                 href={button.link}
+                style={linkStyle}
                 class="flex gap-1 items-center justify-center">
                 {button.icon && <Icon class={iconClass} name={button.icon} />}
                 <editable-text data-prop="text">{button.text}</editable-text>
