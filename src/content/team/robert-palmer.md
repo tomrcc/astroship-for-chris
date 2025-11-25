@@ -1,5 +1,4 @@
 ---
-draft: false
 name: "Robert Palmer"
 title: "Marketing Engineer"
 avatar: {

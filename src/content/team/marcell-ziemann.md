@@ -1,5 +1,4 @@
 ---
-draft: false
 name: "Marcell Ziemann"
 title: "Principal Strategist"
 avatar: {

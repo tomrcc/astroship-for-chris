@@ -1,5 +1,4 @@
 ---
-draft: false
 name: "Janette Lynch"
 title: "Senior Director"
 avatar: {
