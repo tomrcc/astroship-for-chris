@@ -101,7 +101,7 @@ collections_config:
   team:
     path: src/content/team
     icon: emoji_people
-    disable_url: false
+    disable_url: true
     preview:
       text:
       subtext:
@@ -119,7 +119,16 @@ collections_config:
         background_color:
         image:
           - key: avatar.src
-        fit:
+        fit: padded
+    sort_options:
+      - key: name
+        order: ascending
+        label:
+      - key: title
+        order: ascending
+        label:
+    _enabled_editors:
+      - data
     disable_add: false
     disable_add_folder: true
     disable_file_actions: true
