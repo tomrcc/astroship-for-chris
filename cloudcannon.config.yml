@@ -4,6 +4,10 @@ paths:
 collections_config:
   pages:
     path: src/pages
+    glob:
+      - '!404.md'
+      - '*.astro'
+      - '*.md'
     icon: wysiwyg
     url: /[full_slug]/
     disable_url: false
@@ -72,12 +76,10 @@ collections_config:
         order: ascending
     _enabled_editors:
       - data
-    disable_add: false
-    disable_add_folder: true
-    disable_file_actions: true
     _inputs:
       publishDate:
         type: datetime
+        cascade: true
       avatar:
         type: object
         options:
@@ -85,6 +87,10 @@ collections_config:
             icon: emoji_people
             image:
               - key: src
+        cascade: true
+    disable_add: false
+    disable_add_folder: true
+    disable_file_actions: true
 _inputs:
   type:
     hidden: true
