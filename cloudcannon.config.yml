@@ -109,7 +109,13 @@ _inputs:
   $.layout:
     hidden: true
     cascade: true
+  plans:
+    type: array
+    options:
+      structures: _structures.plans
+
 timezone: Pacific/Auckland
+
 markdown:
   engine: commonmark
   options:
@@ -131,6 +137,28 @@ markdown:
     attributes: false
 
 _structures:
+  plans:
+    values:
+      - value:
+          name: 
+          price: 
+          popular: false
+          features: []
+          button:
+            text: Get Started
+            link: /
+        _inputs:
+          popular:
+            type: switch
+          features:
+            type: array
+          features[*]:
+            type: string
+          button:
+            type: object
+            options:
+              preview:
+                icon: smart_button
   content_blocks:
     values:
       - label: Hero

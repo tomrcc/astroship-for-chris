@@ -19,9 +19,20 @@ publishedBlogEntries.sort(function (a, b) {
 <Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">
+        <editable-source
+          data-path="src/pages/blog.astro"
+          data-key="title"
+          data-type="text">Our Blog</editable-source
+        ></Fragment
+      >
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        <editable-source
+          data-path="src/pages/blog.astro"
+          data-key="desc"
+          data-type="text">
+          We write about building startups and thoughts going on our mind.
+        </editable-source>
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -34,6 +45,9 @@ publishedBlogEntries.sort(function (a, b) {
                   <Picture
                     src={blogPostEntry.data.image.src}
                     alt={blogPostEntry.data.image.alt}
+                    data-editable="image"
+                    data-prop-src={`@collections[blog].${index}.image.src`}
+                    data-prop-alt={`@collections[blog].${index}.image.alt`}
                     sizes="(max-width: 800px) 100vw, 800px"
                     width={800}
                     height={600}
@@ -42,16 +56,25 @@ publishedBlogEntries.sort(function (a, b) {
                     class="w-full rounded-md object-cover object-center bg-white"
                   />
                   <div>
-                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                    <span
+                      class="text-blue-400 uppercase tracking-wider text-sm font-medium"
+                      data-editable="text"
+                      data-prop={`@collections[blog].${index}.category`}>
                       {blogPostEntry.data.category}
                     </span>
 
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    <h2
+                      class="text-3xl font-semibold leading-snug tracking-tight mt-1 "
+                      data-editable="text"
+                      data-prop={`@collections[blog].${index}.title`}>
                       {blogPostEntry.data.title}
                     </h2>
 
                     <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">
+                      <span
+                        class="text-gray-400"
+                        data-editable="text"
+                        data-prop={`@collections[blog].${index}.author`}>
                         {blogPostEntry.data.author}
                       </span>
                       <span class="text-gray-400">• </span>

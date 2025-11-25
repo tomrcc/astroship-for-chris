@@ -12,18 +12,18 @@ const { plans } = Astro.props.frontmatter;
     <Sectionhead>
       <Fragment slot="title"
         ><editable-source
-          data-path="src/layouts/PricingLayouts.astro"
+          data-path="src/layouts/PricingLayout.astro"
           data-key="title"
           data-type="text">Pricing</editable-source
         ></Fragment
       >
       <Fragment slot="desc">
-        <editable-regions
-          data-path="src/layouts/PricingLayouts.astro"
+        <editable-source
+          data-path="src/layouts/PricingLayout.astro"
           data-key="desc"
           data-type="text">
           Simple & Predictable pricing. No Surprises.
-        </editable-regions>
+        </editable-source>
       </Fragment>
     </Sectionhead>
 
