@@ -94,11 +94,11 @@ collections_config:
     disable_add_folder: true
     disable_file_actions: true
 
-data_config:
-  boxIcons:
-    path: data/box-icons.json
-  simpleIcons:
-    path: data/simple-icons.json
+# data_config:
+#   boxIcons:
+#     path: data/box-icons.json
+#   simpleIcons:
+#     path: data/simple-icons.json
 
 _inputs:
   type:
