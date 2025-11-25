@@ -3,8 +3,10 @@ import Cta from "@/components/cta.astro";
 import Features from "@/components/features.astro";
 import Hero from "@/components/hero.astro";
 import Logos from "@/components/logos.astro";
+import Link from "@components/ui/link.astro"
 
 registerAstroComponent("cta", Cta);
 registerAstroComponent("features", Features);
 registerAstroComponent("hero", Hero);
 registerAstroComponent("logos", Logos);
+registerAstroComponent("link", Link);
