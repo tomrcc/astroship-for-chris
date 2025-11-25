@@ -6,8 +6,23 @@ const { heading, icons } = Astro.props;
 ---
 
 <div class="mt-24">
-  <h2 class="text-center text-slate-500">{heading}</h2>
-  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-    {icons.map((icon) => <Icon class="size-8 md:size-12" name={icon} />)}
+  <h2
+    class="text-center text-slate-500"
+    data-editable="text"
+    data-prop="heading">
+    {heading}
+  </h2>
+  <div
+    class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap"
+    data-editable="array"
+    data-prop="icons">
+    {
+      icons.map((icon) => (
+        <editable-array-item>
+          {" "}
+          <Icon class="size-8 md:size-12" name={icon} />
+        </editable-array-item>
+      ))
+    }
   </div>
 </div>

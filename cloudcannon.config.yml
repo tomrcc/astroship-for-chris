@@ -1,6 +1,7 @@
 paths:
-  uploads: public/uploads
+  uploads: public/images
   static: public
+
 collections_config:
   pages:
     path: src/pages
@@ -137,15 +138,18 @@ _structures:
           type: hero
           heading: 
           content: 
-          color: "#ffffff"
           image: /images/hero.png
           alt:
           buttons: []
         _inputs:
+          content:
+            type: textarea
           buttons:
             type: array
             options:
               structures: _structures.button
+          alt:
+            comment: Add an alt tag for the hero image.
         _structures:
           button:
             values:
@@ -167,6 +171,8 @@ _structures:
                           id: black
                         - name: White
                           id: white
+                preview:
+                  icon: smart_button
         preview:
           icon: home
           image:
@@ -196,6 +202,8 @@ _structures:
                     type: select
                     options:
                       values: data.boxIcons
+                preview:
+                  icon: bucket_check
       - label: Logos
         value:
           type: logos

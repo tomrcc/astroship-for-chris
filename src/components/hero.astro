@@ -7,8 +7,7 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
 ---
 
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24"
-  style={`background-color: ${color}`}>
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
   <div class="py-6 md:order-1 hidden md:block">
     <Picture
       src={image}
@@ -37,19 +36,25 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
       data-editable="text"
       data-prop="content"
     />
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    <div
+      class="mt-6 flex flex-col sm:flex-row gap-3"
+      data-editable="array"
+      data-direction="row"
+      data-prop="buttons">
       {
         buttons.map((button) => {
           const iconColor = button.iconColor || "white";
           const iconClass =
             iconColor === "black" ? "text-black w-4 h-4" : "text-white w-5 h-5";
           return (
-            <Link
-              href={button.link}
-              class="flex gap-1 items-center justify-center">
-              {button.icon && <Icon class={iconClass} name={button.icon} />}
-              {button.text}
-            </Link>
+            <editable-array-item>
+              <Link
+                href={button.link}
+                class="flex gap-1 items-center justify-center">
+                {button.icon && <Icon class={iconClass} name={button.icon} />}
+                <editable-text data-prop="text">{button.text}</editable-text>
+              </Link>
+            </editable-array-item>
           );
         })
       }
