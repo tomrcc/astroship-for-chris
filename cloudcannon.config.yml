@@ -93,7 +93,16 @@ collections_config:
     disable_add: false
     disable_add_folder: true
     disable_file_actions: true
+
+data_config:
+  boxIcons:
+    path: data/box-icons.json
+  simpleIcons:
+    path: data/simple-icons.json
+
 _inputs:
+  type:
+    hidden: true
   $.image.src:
     type: image
     cascade: true
@@ -120,3 +129,54 @@ markdown:
     superscript: false
     heading_ids: false
     attributes: false
+
+_structures:
+  content_blocks:
+    values:
+      - label: Hero
+        value:
+          type: hero
+          heading: 
+          content: 
+          color: "#ffffff"
+          image: /images/hero.png
+      - label: Features
+        value:
+          type: features
+          heading: 
+          description: 
+          features: []
+        _inputs:
+          features:
+            type: array
+            options:
+              structures: _structures.feature
+        _structures:
+          feature:
+            values:
+              - value:
+                  title: 
+                  description: 
+                  icon: 
+                _inputs:
+                  icon:
+                    type: select
+                    options:
+                      values: data.boxIcons
+      - label: Logos
+        value:
+          type: logos
+          heading: 
+          icons: []
+        _inputs:
+          icons:
+            type: multiselect
+            options:
+              values: data.simpleIcons
+      - label: CTA
+        value:
+          type: cta
+          heading: 
+          description: 
+          buttonText: 
+          buttonLink: "#"

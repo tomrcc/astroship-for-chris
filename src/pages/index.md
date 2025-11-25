@@ -31,14 +31,12 @@ content_blocks:
   - type: logos
     heading: Works with your technologies
     icons:
-      - name: simple-icons:react
-      - name: simple-icons:svelte
-      - name: simple-icons:astro
-      - name: simple-icons:tailwindcss
-        size: size-8 md:size-16
-      - name: simple-icons:alpinedotjs
-        size: size-8 md:size-16
-      - name: simple-icons:vercel
+      - simple-icons:react
+      - simple-icons:svelte
+      - simple-icons:astro
+      - simple-icons:tailwindcss
+      - simple-icons:alpinedotjs
+      - simple-icons:vercel
   - type: cta
     heading: Build faster websites.
     description: Pull content from anywhere and serve it fast with Astro's next-gen island architecture.

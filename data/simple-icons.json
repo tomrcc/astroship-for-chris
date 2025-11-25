@@ -1,0 +1,27 @@
+[
+  {
+    "name": "React",
+    "id": "simple-icons:react"
+  },
+  {
+    "name": "Svelte",
+    "id": "simple-icons:svelte"
+  },
+  {
+    "name": "Astro",
+    "id": "simple-icons:astro"
+  },
+  {
+    "name": "Tailwind CSS",
+    "id": "simple-icons:tailwindcss"
+  },
+  {
+    "name": "Alpine.js",
+    "id": "simple-icons:alpinedotjs"
+  },
+  {
+    "name": "Vercel",
+    "id": "simple-icons:vercel"
+  }
+]
+

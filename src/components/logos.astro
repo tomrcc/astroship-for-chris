@@ -8,15 +8,6 @@ const { heading, icons } = Astro.props;
 <div class="mt-24">
   <h2 class="text-center text-slate-500">{heading}</h2>
   <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-    {
-      icons.map((icon) => {
-        const iconName = typeof icon === "string" ? icon : icon.name;
-        const iconSize =
-          typeof icon === "string"
-            ? "size-8 md:size-12"
-            : icon.size || "size-8 md:size-12";
-        return <Icon class={iconSize} name={iconName} />;
-      })
-    }
+    {icons.map((icon) => <Icon class="size-8 md:size-12" name={icon} />)}
   </div>
 </div>

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Briefcase",
+    "id": "bx:bxs-briefcase"
+  },
+  {
+    "name": "Window Alt",
+    "id": "bx:bxs-window-alt"
+  },
+  {
+    "name": "Data",
+    "id": "bx:bxs-data"
+  },
+  {
+    "name": "Bot",
+    "id": "bx:bxs-bot"
+  },
+  {
+    "name": "File Find",
+    "id": "bx:bxs-file-find"
+  },
+  {
+    "name": "User",
+    "id": "bx:bxs-user"
+  },
+  {
+    "name": "Cloud Download",
+    "id": "bx:bxs-cloud-download"
+  }
+]
+
