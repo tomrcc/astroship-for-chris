@@ -17,36 +17,20 @@ collections_config:
     icon: newspaper
     disable_url: false
     preview:
-      text:
       subtext:
         - key: author
-      icon:
-      icon_color:
-      icon_background_color:
-      image:
       metadata:
         - text:
             - key: publishDate
-          icon:
-          icon_color:
-          icon_background_color:
-          image:
       gallery:
-        text:
-        icon:
-        icon_color:
-        icon_background_color:
-        background_color:
         image:
           - key: image.src
         fit: cover
     sort_options:
       - key: title
         order: ascending
-        label:
       - key: publishDate
         order: ascending
-        label:
     _enabled_editors:
       - visual
     _inputs:
@@ -56,16 +40,7 @@ collections_config:
       $.image.alt:
         type: textarea
         options:
-          empty_type:
-          show_count:
           required: true
-          required_message:
-          min_length:
-          min_length_message:
-          max_length:
-          max_length_message:
-          pattern:
-          pattern_message:
         cascade: true
       $.publishDate:
         type: datetime
@@ -75,25 +50,6 @@ collections_config:
         options:
           allow_create: true
           allow_empty: true
-          values:
-          value_key:
-          preview:
-          picker_preview:
-          view:
-          picker_view:
-          required:
-          required_message:
-          min_length:
-          min_length_message:
-          max_length:
-          max_length_message:
-          pattern:
-          pattern_message:
-          empty_type:
-          min_items:
-          min_items_message:
-          max_items:
-          max_items_message:
         cascade: true
     disable_add: false
     disable_add_folder: true
@@ -103,40 +59,37 @@ collections_config:
     icon: emoji_people
     disable_url: true
     preview:
-      text:
       subtext:
         - key: title
-      icon:
-      icon_color:
-      icon_background_color:
-      image:
-      metadata:
       gallery:
-        text:
-        icon:
-        icon_color:
-        icon_background_color:
-        background_color:
         image:
           - key: avatar.src
         fit: padded
     sort_options:
       - key: name
         order: ascending
-        label:
       - key: title
         order: ascending
-        label:
     _enabled_editors:
       - data
     disable_add: false
     disable_add_folder: true
     disable_file_actions: true
+    _inputs:
+      publishDate:
+        type: datetime
+      avatar:
+        type: object
+        options:
+          preview:
+            icon: emoji_people
+            image:
+              - key: src
 _inputs:
   type:
     hidden: true
     cascade: true
-  $.image.src:
+  src:
     type: image
     cascade: true
   $.layout:
@@ -167,7 +120,7 @@ _structures:
             type: array
             cascade: true
           features[*]:
-            type: string
+            type: text
             cascade: true
           button:
             type: object
@@ -175,6 +128,8 @@ _structures:
               preview:
                 icon: smart_button
             cascade: true
+        preview:
+          icon: credit_card
   content_blocks:
     style: select
     values:
