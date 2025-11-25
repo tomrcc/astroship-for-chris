@@ -4,21 +4,41 @@ import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import PricingCard from "@/components/pricing.astro";
 
-const {plans} = Astro.props.frontmatter;
+const { plans } = Astro.props.frontmatter;
 ---
 
 <Layout title="Pricing">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title"
+        ><editable-source
+          data-path="src/layouts/PricingLayouts.astro"
+          data-key="title"
+          data-type="text">Pricing</editable-source
+        ></Fragment
+      >
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        <editable-regions
+          data-path="src/layouts/PricingLayouts.astro"
+          data-key="desc"
+          data-type="text">
+          Simple & Predictable pricing. No Surprises.
+        </editable-regions>
       </Fragment>
     </Sectionhead>
 
     <div
-      class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12" data-editable="array" data-prop="plans" data-direction="row">
-      {plans.map((item) => <editable-array-item><PricingCard plan={item} /></editable-array-item>)}
+      class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12"
+      data-editable="array"
+      data-prop="plans"
+      data-direction="row">
+      {
+        plans.map((item) => (
+          <editable-array-item>
+            <PricingCard plan={item} />
+          </editable-array-item>
+        ))
+      }
     </div>
   </Container>
 </Layout>
