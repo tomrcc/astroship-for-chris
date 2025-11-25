@@ -1,7 +1,6 @@
 paths:
   uploads: public/images
   static: public
-
 collections_config:
   pages:
     path: src/pages
@@ -15,8 +14,39 @@ collections_config:
     disable_file_actions: false
   blog:
     path: src/content/blog
-    icon: event_available
+    icon: newspaper
     disable_url: false
+    preview:
+      text:
+      subtext:
+        - key: author
+      icon:
+      icon_color:
+      icon_background_color:
+      image:
+      metadata:
+        - text:
+            - key: publishDate
+          icon:
+          icon_color:
+          icon_background_color:
+          image:
+      gallery:
+        text:
+        icon:
+        icon_color:
+        icon_background_color:
+        background_color:
+        image:
+          - key: image.src
+        fit: cover
+    sort_options:
+      - key: title
+        order: ascending
+        label:
+      - key: publishDate
+        order: ascending
+        label:
     _enabled_editors:
       - visual
     _inputs:
@@ -66,7 +96,7 @@ collections_config:
           max_items_message:
         cascade: true
     disable_add: false
-    disable_add_folder: false
+    disable_add_folder: true
     disable_file_actions: false
   team:
     path: src/content/team
@@ -93,16 +123,10 @@ collections_config:
     disable_add: false
     disable_add_folder: true
     disable_file_actions: true
-
-data_config:
-  boxIcons:
-    path: data/box-icons.json
-  simpleIcons:
-    path: data/simple-icons.json
-
 _inputs:
   type:
     hidden: true
+    cascade: true
   $.image.src:
     type: image
     cascade: true
@@ -113,9 +137,154 @@ _inputs:
     type: array
     options:
       structures: _structures.plans
-
+    cascade: true
+_structures:
+  plans:
+    style: select
+    values:
+      - value:
+          name:
+          price:
+          popular: false
+          features: []
+          button:
+            text: Get Started
+            link: /
+        _inputs:
+          popular:
+            type: switch
+            cascade: true
+          features:
+            type: array
+            cascade: true
+          features[*]:
+            type: string
+            cascade: true
+          button:
+            type: object
+            options:
+              preview:
+                icon: smart_button
+            cascade: true
+  content_blocks:
+    style: select
+    values:
+      - label: Hero
+        value:
+          type: hero
+          heading:
+          content:
+          image: /images/hero.png
+          alt:
+          buttons: []
+        _inputs:
+          content:
+            type: textarea
+            cascade: true
+          buttons:
+            type: array
+            options:
+              structures: _structures.button
+            cascade: true
+          alt:
+            comment: Add an alt tag for the hero image.
+            cascade: true
+        _structures:
+          button:
+            style: select
+            values:
+              - value:
+                  text:
+                  link:
+                  icon:
+                  style: primary
+                _inputs:
+                  icon:
+                    type: select
+                    options:
+                      allow_empty: true
+                      values: data.boxIcons
+                    cascade: true
+                  style:
+                    type: select
+                    options:
+                      allow_empty: true
+                      values:
+                        - name: Primary
+                          id: primary
+                        - name: Outline
+                          id: outline
+                        - name: Inverted
+                          id: inverted
+                        - name: Muted
+                          id: muted
+                    cascade: true
+                preview:
+                  icon: smart_button
+        preview:
+          icon: home
+          image:
+            - key: image
+      - label: Features
+        value:
+          type: features
+          heading:
+          description:
+          features: []
+        _inputs:
+          features:
+            type: array
+            options:
+              structures: _structures.feature
+            cascade: true
+        preview:
+          icon: apps
+        _structures:
+          feature:
+            style: select
+            values:
+              - value:
+                  title:
+                  description:
+                  icon:
+                _inputs:
+                  icon:
+                    type: select
+                    options:
+                      allow_empty: true
+                      values: data.boxIcons
+                    cascade: true
+                preview:
+                  icon: bucket_check
+      - label: Logos
+        value:
+          type: logos
+          heading:
+          icons: []
+        _inputs:
+          icons:
+            type: multiselect
+            options:
+              allow_empty: true
+              values: data.simpleIcons
+            cascade: true
+        preview:
+          icon: grid_view
+      - label: CTA
+        preview:
+          icon: call_to_action
+        value:
+          type: cta
+          heading:
+          description:
+          buttonText:
+          buttonLink: '#'
+data_config:
+  boxIcons:
+    path: data/box-icons.json
+  simpleIcons:
+    path: data/simple-icons.json
 timezone: Pacific/Auckland
-
 markdown:
   engine: commonmark
   options:
@@ -135,125 +304,3 @@ markdown:
     superscript: false
     heading_ids: false
     attributes: false
-
-_structures:
-  plans:
-    values:
-      - value:
-          name: 
-          price: 
-          popular: false
-          features: []
-          button:
-            text: Get Started
-            link: /
-        _inputs:
-          popular:
-            type: switch
-          features:
-            type: array
-          features[*]:
-            type: string
-          button:
-            type: object
-            options:
-              preview:
-                icon: smart_button
-  content_blocks:
-    values:
-      - label: Hero
-        value:
-          type: hero
-          heading: 
-          content: 
-          image: /images/hero.png
-          alt:
-          buttons: []
-        _inputs:
-          content:
-            type: textarea
-          buttons:
-            type: array
-            options:
-              structures: _structures.button
-          alt:
-            comment: Add an alt tag for the hero image.
-        _structures:
-          button:
-            values:
-              - value:
-                  text: 
-                  link: 
-                  icon: 
-                  style: primary
-                _inputs:
-                  icon:
-                    type: select
-                    options:
-                      values: data.boxIcons
-                  style:
-                    type: select
-                    options:
-                      values: 
-                        - name: Primary
-                          id: primary
-                        - name: Outline
-                          id: outline
-                        - name: Inverted
-                          id: inverted
-                        - name: Muted
-                          id: muted
-                preview:
-                  icon: smart_button
-        preview:
-          icon: home
-          image:
-            - key: image
-      - label: Features
-        value:
-          type: features
-          heading: 
-          description: 
-          features: []
-        _inputs:
-          features:
-            type: array
-            options:
-              structures: _structures.feature
-        preview:
-          icon: apps
-        _structures:
-          feature:
-            values:
-              - value:
-                  title: 
-                  description: 
-                  icon: 
-                _inputs:
-                  icon:
-                    type: select
-                    options:
-                      values: data.boxIcons
-                preview:
-                  icon: bucket_check
-      - label: Logos
-        value:
-          type: logos
-          heading: 
-          icons: []
-        _inputs:
-          icons:
-            type: multiselect
-            options:
-              values: data.simpleIcons
-        preview:
-          icon: grid_view
-      - label: CTA
-        value:
-          type: cta
-          heading: 
-          description: 
-          buttonText: 
-          buttonLink: "#"
-        preview:
-          icon: call_to_action
