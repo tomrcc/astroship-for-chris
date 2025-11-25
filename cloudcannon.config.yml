@@ -139,6 +139,38 @@ _structures:
           content: 
           color: "#ffffff"
           image: /images/hero.png
+          alt:
+          buttons: []
+        _inputs:
+          buttons:
+            type: array
+            options:
+              structures: _structures.button
+        _structures:
+          button:
+            values:
+              - value:
+                  text: 
+                  link: 
+                  icon: 
+                  iconColor: white 
+                _inputs:
+                  icon:
+                    type: select
+                    options:
+                      values: data.boxIcons
+                  iconColor:
+                    type: select
+                    options:
+                      values: 
+                        - name: Black
+                          id: black
+                        - name: White
+                          id: white
+        preview:
+          icon: home
+          image:
+            - key: image
       - label: Features
         value:
           type: features
@@ -150,6 +182,8 @@ _structures:
             type: array
             options:
               structures: _structures.feature
+        preview:
+          icon: apps
         _structures:
           feature:
             values:
@@ -172,6 +206,8 @@ _structures:
             type: multiselect
             options:
               values: data.simpleIcons
+        preview:
+          icon: grid_view
       - label: CTA
         value:
           type: cta
@@ -179,3 +215,5 @@ _structures:
           description: 
           buttonText: 
           buttonLink: "#"
+        preview:
+          icon: call_to_action

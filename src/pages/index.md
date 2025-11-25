@@ -6,6 +6,16 @@ content_blocks:
     content: Astroship is a starter template for startups, marketing websites & landing pages. Built with Astro.build and TailwindCSS. You can quickly create any website with this starter.
     color: "#ffffff"
     image: /images/hero.png
+    alt: Astronaut in the air
+    buttons:
+      - text: Download for Free
+        link: https://web3templates.com/templates/astroship-starter-website-template-for-astro
+        icon: bx:bxs-cloud-download
+        iconColor: white
+      - text: GitHub Repo
+        link: https://github.com/surjithctly/astroship
+        icon: bx:bxl-github
+        iconColor: black
   - type: features
     heading: Everything you need to start a website
     description: Astro comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
