@@ -2,7 +2,7 @@
 import { Picture } from "astro:assets";
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
-import CTA from "./cta.astro"
+import Cta from "./cta.astro"
 
 const { heading, content, color, image, alt, buttons = [] } = Astro.props;
 ---
@@ -63,6 +63,6 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
         })
       }
     </div>
-    <Cta />
+    <Cta heading="Test heading" description="A test desc" buttonText="A button" buttonLink="/" />
   </div>
 </main>
