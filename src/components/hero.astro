@@ -50,7 +50,7 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
               ? "text-white w-5 h-5"
               : "text-black w-4 h-4";
           return (
-            <editable-array-item data-component="link">
+            <editable-array-item>
               <Link
                 href={button.link}
                 style={linkStyle}
