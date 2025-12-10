@@ -63,6 +63,6 @@ const { heading, content, color, image, alt, buttons = [] } = Astro.props;
         })
       }
     </div>
-    <Cta heading="Test heading" description="A test desc" buttonText="A button" buttonLink="/" />
+    <Cta heading={heading} description={content} buttonText="A button" buttonLink="/" />
   </div>
 </main>
